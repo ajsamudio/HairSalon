@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { clientConfig } from "@/client.config";
+import Reveal from "@/components/Reveal";
 
 const specialties = ["Balayage", "Curtain Bangs", "Color Correction", "Bridal Hair", "Men's Cuts"];
 const stats = [
@@ -11,14 +12,15 @@ export default function About() {
   const { neighborhood, city } = clientConfig.business;
 
   return (
-    <section id="about" aria-labelledby="about-heading" className="py-16 md:py-24 bg-surface">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-start">
+    <section id="about" aria-labelledby="about-heading" className="py-20 md:py-28 bg-surface/60 relative overflow-hidden">
+      <div className="blob" style={{ width: 340, height: 340, background: "#E8D5F0", bottom: -100, right: -80 }} aria-hidden />
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 relative">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
           {/* Photo */}
-          <div className="w-full md:w-[40%] shrink-0">
-            <div className="relative aspect-[4/5] rounded-brand overflow-hidden">
+          <Reveal className="w-full md:w-[40%] shrink-0">
+            <div className="relative aspect-[4/5] rounded-brand overflow-hidden shadow-lg shadow-accent/10">
               <Image
-                src="https://placehold.co/800x1000.png?text=Owner+Portrait"
+                src="https://placehold.co/800x1000/F6D6E0/4A2E3B.png?text=Owner+Portrait"
                 alt="Hair stylist portrait"
                 fill
                 loading="lazy"
@@ -26,13 +28,16 @@ export default function About() {
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
-          </div>
+          </Reveal>
 
           {/* Bio */}
-          <div className="flex flex-col gap-6 md:pt-4">
+          <Reveal delay={2} className="flex flex-col gap-6 md:pt-4">
             <div>
-              <h2 id="about-heading" className="font-heading text-3xl md:text-4xl font-bold text-ink mb-4">
-                About Your Stylist
+              <p className="text-accent font-medium tracking-wide uppercase text-xs mb-3">
+                Meet Your Stylist
+              </p>
+              <h2 id="about-heading" className="font-heading text-4xl md:text-5xl font-medium italic text-ink mb-5">
+                Made for you.
               </h2>
               <div className="space-y-4 text-ink-soft leading-relaxed">
                 <p>
@@ -53,17 +58,17 @@ export default function About() {
             {/* Specialty pills */}
             <div className="flex flex-wrap gap-2">
               {specialties.map((s) => (
-                <span key={s} className="text-sm bg-accent-2 text-ink rounded-full px-3 py-1.5">
+                <span key={s} className="text-sm bg-white/70 border border-accent-2 text-ink rounded-full px-3 py-1.5">
                   {s}
                 </span>
               ))}
             </div>
 
             {/* Stats */}
-            <div className="flex gap-8">
+            <div className="flex gap-10">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <div className="font-heading text-3xl font-bold text-accent">{stat.value}</div>
+                  <div className="font-heading text-4xl font-semibold italic text-accent">{stat.value}</div>
                   <div className="text-sm text-ink-soft">{stat.label}</div>
                 </div>
               ))}
@@ -72,11 +77,11 @@ export default function About() {
             {/* CTA */}
             <a
               href="#book"
-              className="inline-flex items-center justify-center self-start min-h-[52px] px-8 rounded-brand bg-accent text-white font-semibold transition-all active:scale-[0.98] hover:brightness-90"
+              className="inline-flex items-center justify-center self-start min-h-[52px] px-8 rounded-brand bg-accent text-white font-semibold transition-all active:scale-[0.98] hover:brightness-105 hover:shadow-lg shadow-accent/30"
             >
               Book Now
             </a>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

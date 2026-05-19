@@ -8,7 +8,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service, badge }: ServiceCardProps) {
   return (
-    <article className="relative bg-surface rounded-brand p-4 flex flex-col gap-3 border border-line">
+    <article className="relative bg-white/70 backdrop-blur-sm rounded-brand p-5 flex flex-col gap-3 border border-accent-2 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-accent transition-all duration-300 h-full">
       {/* Badge */}
       {badge && (
         <span
@@ -26,7 +26,7 @@ export default function ServiceCard({ service, badge }: ServiceCardProps) {
       )}
 
       {/* Name */}
-      <h3 className="font-heading font-semibold text-ink text-base leading-snug pr-24">
+      <h3 className="font-heading font-semibold text-ink text-xl leading-snug pr-24">
         {service.name}
       </h3>
 
@@ -35,16 +35,16 @@ export default function ServiceCard({ service, badge }: ServiceCardProps) {
 
       {/* Meta row */}
       <div className="flex items-center gap-2 flex-wrap">
-        <span className="text-xs bg-line text-ink-soft rounded-full px-2.5 py-1">
+        <span className="text-xs bg-accent-2/70 text-ink rounded-full px-3 py-1 font-medium">
           {service.durationDisplay}
         </span>
-        <span className="text-sm font-semibold text-ink">{service.priceDisplay}</span>
+        <span className="text-base font-semibold text-accent ml-auto">{service.priceDisplay}</span>
       </div>
 
       {/* Book button */}
       <a
         href={`#book?service=${service.slug}`}
-        className="mt-auto inline-flex items-center justify-center min-h-[44px] rounded-brand border border-accent text-accent font-semibold text-sm transition-colors hover:bg-accent hover:text-white active:scale-[0.98]"
+        className="mt-auto inline-flex items-center justify-center min-h-[44px] rounded-brand bg-accent/10 border border-accent text-accent font-semibold text-sm transition-all hover:bg-accent hover:text-white active:scale-[0.98]"
       >
         Book
       </a>

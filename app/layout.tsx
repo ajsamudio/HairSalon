@@ -1,24 +1,29 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Cormorant_Garamond, Quicksand } from "next/font/google";
 import { clientConfig } from "@/client.config";
 import { faqs } from "@/content/faqs";
 import { services } from "@/content/services";
 import "./globals.css";
 
-const fontHeading = Fraunces({
+const fontHeading = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-heading",
   display: "swap",
 });
 
-const fontBody = Inter({
+const fontBody = Quicksand({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
 });
 
+// NEXT_PUBLIC_SITE_URL is set in Vercel env vars; fall back to VERCEL_URL
+// (auto-provided by Vercel) before defaulting to localhost
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

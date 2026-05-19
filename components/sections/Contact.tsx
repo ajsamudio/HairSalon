@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import { clientConfig } from "@/client.config";
+import Reveal from "@/components/Reveal";
 
 const DAY_LABELS: Record<string, string> = {
   monday: "Mon",
@@ -19,15 +20,20 @@ export default function Contact() {
   const hoursEntries = Object.entries(hours) as [string, string | null][];
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="py-16 md:py-24 bg-surface">
+    <section id="contact" aria-labelledby="contact-heading" className="py-20 md:py-28 bg-surface/60">
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
-        <h2 id="contact-heading" className="font-heading text-3xl md:text-4xl font-bold text-ink mb-8">
-          Visit
-        </h2>
+        <Reveal className="mb-10 text-center">
+          <p className="text-accent font-medium tracking-wide uppercase text-xs mb-3">
+            Come Say Hi
+          </p>
+          <h2 id="contact-heading" className="font-heading text-4xl md:text-5xl font-medium italic text-ink">
+            Visit the studio
+          </h2>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Contact info */}
-          <div className="flex flex-col gap-6">
+          <Reveal className="flex flex-col gap-6">
             {/* Address */}
             <a
               href={mapsUrl}
@@ -74,10 +80,10 @@ export default function Contact() {
                 </tbody>
               </table>
             </div>
-          </div>
+          </Reveal>
 
           {/* Map */}
-          <div className="rounded-brand overflow-hidden h-60 md:h-80 bg-line">
+          <Reveal delay={2} className="rounded-brand overflow-hidden h-60 md:h-80 bg-line shadow-md shadow-accent/10">
             <iframe
               src={mapsEmbedUrl}
               width="100%"
@@ -87,7 +93,7 @@ export default function Contact() {
               referrerPolicy="no-referrer-when-downgrade"
               title={`Map of ${address}`}
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

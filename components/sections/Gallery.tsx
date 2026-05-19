@@ -5,6 +5,7 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import GalleryTile from "./GalleryTile";
+import Reveal from "@/components/Reveal";
 
 type GalleryFilter = "all" | "cuts" | "color" | "balayage" | "extensions" | "updos";
 
@@ -53,15 +54,18 @@ export default function Gallery() {
       : galleryItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section id="gallery" aria-labelledby="gallery-heading" className="py-16 md:py-24 bg-surface">
+    <section id="gallery" aria-labelledby="gallery-heading" className="py-20 md:py-28 bg-surface/60">
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
         {/* Heading */}
-        <div className="mb-6">
-          <h2 id="gallery-heading" className="font-heading text-3xl md:text-4xl font-bold text-ink mb-2">
+        <Reveal className="mb-10 text-center">
+          <p className="text-accent font-medium tracking-wide uppercase text-xs mb-3">
+            Portfolio
+          </p>
+          <h2 id="gallery-heading" className="font-heading text-4xl md:text-5xl font-medium italic text-ink mb-3">
             Recent work
           </h2>
-          <p className="text-ink-soft">Real clients, real results. Tap any look to see it up close.</p>
-        </div>
+          <p className="text-ink-soft max-w-md mx-auto">Real clients, real results. Tap any look to see it up close.</p>
+        </Reveal>
 
         {/* Filter chips */}
         <div
@@ -75,10 +79,10 @@ export default function Gallery() {
               onClick={() => setActiveFilter(f.value)}
               aria-pressed={activeFilter === f.value}
               className={cn(
-                "shrink-0 snap-start min-h-[44px] px-4 rounded-full text-sm font-medium transition-colors whitespace-nowrap",
+                "shrink-0 snap-start min-h-[44px] px-5 rounded-full text-sm font-medium transition-all whitespace-nowrap",
                 activeFilter === f.value
-                  ? "bg-accent text-white"
-                  : "bg-bg text-ink-soft border border-line hover:border-accent hover:text-accent"
+                  ? "bg-accent text-white shadow-md shadow-accent/30 scale-[1.02]"
+                  : "bg-white/70 text-ink-soft border border-accent-2 hover:border-accent hover:text-accent"
               )}
             >
               {f.label}

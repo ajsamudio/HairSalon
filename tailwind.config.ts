@@ -3,13 +3,13 @@ import { clientConfig } from "./client.config";
 
 const presets = {
   "approachable-modern": {
-    bg: "#FFFFFF",
-    surface: "#F7F5F2",
-    ink: "#1F2937",
-    inkSoft: "#6B7280",
-    accent: "#D97757",
-    accent2: "#F4E5DC",
-    line: "#E5E7EB",
+    bg: "#FFF8F6",
+    surface: "#FCEEF1",
+    ink: "#4A2E3B",
+    inkSoft: "#9C7989",
+    accent: "#E8A4B8",
+    accent2: "#F6D6E0",
+    line: "#F3DDE4",
   },
   "editorial-luxe": {
     bg: "#FAFAF7",
@@ -61,7 +61,31 @@ export default {
             ? "2px"
             : clientConfig.brand.preset === "edgy-studio"
               ? "0px"
-              : "12px",
+              : "20px",
+      },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-down": {
+          "0%": { opacity: "0", transform: "translateY(-16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 0.8s ease-out both",
+        "fade-up": "fade-up 0.9s ease-out both",
+        "fade-down": "fade-down 0.7s ease-out both",
+        float: "float 6s ease-in-out infinite",
       },
     },
   },

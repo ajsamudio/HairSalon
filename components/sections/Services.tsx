@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import ServiceCard from "./ServiceCard";
+import Reveal from "@/components/Reveal";
 import {
   categoryOrder,
   categoryLabels,
@@ -17,15 +18,24 @@ export default function Services() {
   const visibleServices = servicesByCategory[activeCategory] ?? [];
 
   return (
-    <section id="services" aria-labelledby="services-heading" className="py-16 md:py-24">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
+    <section id="services" aria-labelledby="services-heading" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="blob" style={{ width: 360, height: 360, background: "#F6D6E0", top: -80, right: -100 }} aria-hidden />
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 relative">
         {/* Heading */}
-        <div className="mb-8">
-          <h2 id="services-heading" className="font-heading text-3xl md:text-4xl font-bold text-ink mb-2">
+        <Reveal className="mb-10 text-center">
+          <p className="text-accent font-medium tracking-wide uppercase text-xs mb-3">
+            The Menu
+          </p>
+          <h2
+            id="services-heading"
+            className="font-heading text-4xl md:text-5xl font-medium italic text-ink mb-3"
+          >
             Services &amp; pricing
           </h2>
-          <p className="text-ink-soft">Transparent pricing, no surprises. Final price confirmed at consultation.</p>
-        </div>
+          <p className="text-ink-soft max-w-md mx-auto">
+            Transparent pricing, no surprises. Final price confirmed at your consultation.
+          </p>
+        </Reveal>
 
         {/* Category tabs — horizontal scroll on mobile, wrap on desktop */}
         <div
@@ -42,10 +52,10 @@ export default function Services() {
                 aria-selected={activeCategory === cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "shrink-0 snap-start min-h-[44px] px-4 rounded-full text-sm font-medium transition-colors whitespace-nowrap",
+                  "shrink-0 snap-start min-h-[44px] px-5 rounded-full text-sm font-medium transition-all whitespace-nowrap",
                   activeCategory === cat
-                    ? "bg-accent text-white"
-                    : "bg-surface text-ink-soft border border-line hover:border-accent hover:text-accent"
+                    ? "bg-accent text-white shadow-md shadow-accent/30 scale-[1.02]"
+                    : "bg-white/70 text-ink-soft border border-accent-2 hover:border-accent hover:text-accent"
                 )}
               >
                 {categoryLabels[cat]}
@@ -57,14 +67,18 @@ export default function Services() {
         {/* Service cards grid */}
         <div
           role="tabpanel"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {visibleServices.map((service) => (
-            <ServiceCard
+          {visibleServices.map((service, i) => (
+            <Reveal
               key={service.slug}
-              service={service}
-              badge={serviceBadges[service.slug]}
-            />
+              delay={(((i % 3) + 1) as 1 | 2 | 3)}
+            >
+              <ServiceCard
+                service={service}
+                badge={serviceBadges[service.slug]}
+              />
+            </Reveal>
           ))}
         </div>
       </div>

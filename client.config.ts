@@ -23,8 +23,8 @@ export const clientConfig = {
       | "approachable-modern"
       | "editorial-luxe"
       | "edgy-studio",
-    primaryColor: "#D97757",
-    accentColor: "#F4E5DC",
+    primaryColor: "#E8A4B8",
+    accentColor: "#F6D6E0",
   },
   social: {
     instagram: "demosalon",

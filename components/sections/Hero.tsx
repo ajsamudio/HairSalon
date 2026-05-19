@@ -7,31 +7,50 @@ export default function Hero() {
   return (
     <section
       aria-label="Hero"
-      className="relative min-h-[60vh] md:min-h-[80vh] flex items-center"
+      className="relative min-h-[70vh] md:min-h-[85vh] flex items-center overflow-hidden bg-pastel-wash"
     >
-      {/* Background image */}
-      <Image
-        src="https://placehold.co/1600x900.png?text=Hero+Image+%E2%80%94+stylist+at+work"
-        alt={`Hair stylist at work in ${neighborhood}, ${city}`}
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
+      {/* Decorative pastel blobs */}
+      <div
+        className="blob animate-float"
+        style={{ width: 380, height: 380, background: "#F6D6E0", top: -80, right: -80 }}
+        aria-hidden
+      />
+      <div
+        className="blob animate-float"
+        style={{
+          width: 300,
+          height: 300,
+          background: "#E8D5F0",
+          bottom: -100,
+          left: -60,
+          animationDelay: "1.5s",
+        }}
+        aria-hidden
       />
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+      {/* Soft photo on the right, hidden behind wash on mobile */}
+      <div className="absolute inset-y-0 right-0 w-full md:w-1/2 opacity-40 md:opacity-70">
+        <Image
+          src="https://placehold.co/1200x1400/F6D6E0/4A2E3B.png?text=Stylist+at+work"
+          alt={`Hair stylist at work in ${neighborhood}, ${city}`}
+          fill
+          priority
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFF1F4] via-[#FFF1F4]/60 to-transparent md:via-[#FFF1F4]/30" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 py-20 md:py-28">
         <div className="max-w-xl">
           {/* Trust pills */}
-          <div className="flex flex-wrap gap-2 mb-5">
+          <div className="flex flex-wrap gap-2 mb-6 animate-fade-down">
             {["★ 4.9 on Google", `5 years in ${neighborhood}`, "Same-day appointments"].map(
               (pill) => (
                 <span
                   key={pill}
-                  className="text-xs font-medium text-white bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-3 py-1"
+                  className="text-xs font-medium text-ink bg-white/70 backdrop-blur-sm border border-accent-2 rounded-full px-3 py-1 shadow-sm"
                 >
                   {pill}
                 </span>
@@ -39,25 +58,33 @@ export default function Hero() {
             )}
           </div>
 
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 text-balance drop-shadow-lg">
-            Hair that fits your life.
+          <h1
+            className="font-heading text-5xl md:text-6xl lg:text-7xl font-medium italic text-ink leading-[1.05] mb-5 text-balance animate-fade-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Hair that fits <br />
+            <span className="text-accent not-italic font-semibold">your life.</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 drop-shadow">
-            Walk in. Sit back. Walk out feeling like yourself.{" "}
-            {neighborhood}, {city}.
+          <p
+            className="text-lg md:text-xl text-ink-soft mb-9 max-w-md leading-relaxed animate-fade-up"
+            style={{ animationDelay: "0.25s" }}
+          >
+            Walk in. Sit back. Walk out feeling like yourself. {neighborhood}, {city}.
           </p>
 
-          {/* CTAs — stacked on mobile, row on desktop */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div
+            className="flex flex-col sm:flex-row gap-3 animate-fade-up"
+            style={{ animationDelay: "0.4s" }}
+          >
             <a
               href="#book"
-              className="inline-flex items-center justify-center min-h-[56px] px-8 rounded-brand bg-accent text-white font-semibold text-base transition-all active:scale-[0.98] hover:brightness-90 text-center"
+              className="inline-flex items-center justify-center min-h-[56px] px-8 rounded-brand bg-accent text-white font-semibold text-base transition-all active:scale-[0.98] hover:brightness-105 hover:shadow-lg shadow-accent/30 text-center"
             >
               Book Now
             </a>
             <a
               href="#services"
-              className="inline-flex items-center justify-center min-h-[56px] px-8 rounded-brand bg-white/15 backdrop-blur-sm border border-white/40 text-white font-semibold text-base transition-all active:scale-[0.98] hover:bg-white/25 text-center"
+              className="inline-flex items-center justify-center min-h-[56px] px-8 rounded-brand bg-white/70 backdrop-blur-sm border border-accent-2 text-ink font-semibold text-base transition-all active:scale-[0.98] hover:bg-white text-center"
             >
               See Services
             </a>
