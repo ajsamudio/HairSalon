@@ -7,8 +7,8 @@ import { cookies } from "next/headers";
 import { clientConfig } from "@/client.config";
 import type { Database } from "@/types/database";
 
-function createSupabaseClient() {
-  const cookieStore = cookies();
+async function createSupabaseClient() {
+  const cookieStore = await cookies();
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -34,8 +34,8 @@ export async function sendMagicLink(
     return { error: "This email isn't authorized." };
   }
 
-  const supabase = createSupabaseClient();
-  const headersList = headers();
+  const supabase = await createSupabaseClient();
+  const headersList = await headers();
   const origin = headersList.get("origin") ?? "";
 
   const { error } = await supabase.auth.signInWithOtp({
@@ -53,7 +53,7 @@ export async function sendMagicLink(
 }
 
 export async function signOut(): Promise<void> {
-  const supabase = createSupabaseClient();
+  const supabase = await createSupabaseClient();
   await supabase.auth.signOut();
   redirect("/admin/login");
 }
