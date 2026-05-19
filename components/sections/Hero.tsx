@@ -31,7 +31,7 @@ export default function Hero() {
       {/* Soft photo on the right, hidden behind wash on mobile */}
       <div className="absolute inset-y-0 right-0 w-full md:w-1/2 opacity-40 md:opacity-70">
         <Image
-          src="https://placehold.co/1200x1400/F6D6E0/4A2E3B.png?text=Stylist+at+work"
+          src="/images/hero-main.jpg"
           alt={`Hair stylist at work in ${neighborhood}, ${city}`}
           fill
           priority

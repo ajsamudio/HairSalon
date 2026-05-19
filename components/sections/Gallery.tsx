@@ -25,22 +25,22 @@ const FILTERS: { value: GalleryFilter; label: string }[] = [
 ];
 
 const galleryItems: GalleryItem[] = [
-  { src: "https://placehold.co/600x750.png?text=Modern+bob+clean+lines", alt: "Modern bob, clean lines", category: "cuts" },
-  { src: "https://placehold.co/600x750.png?text=Curtain+bangs+soft+layers", alt: "Curtain bangs, soft layers", category: "cuts" },
-  { src: "https://placehold.co/600x750.png?text=Men%27s+textured+crop", alt: "Men's textured crop", category: "cuts" },
-  { src: "https://placehold.co/600x750.png?text=Long+layers+glossy+back", alt: "Long layers, glossy back view", category: "cuts" },
-  { src: "https://placehold.co/600x750.png?text=Rich+brunette+gloss", alt: "Rich brunette gloss", category: "color" },
-  { src: "https://placehold.co/600x750.png?text=Copper+red+transformation", alt: "Copper/red transformation", category: "color" },
-  { src: "https://placehold.co/600x750.png?text=Platinum+cool+blonde", alt: "Platinum cool blonde", category: "color" },
-  { src: "https://placehold.co/600x750.png?text=Lived-in+dimensional+brunette", alt: "Lived-in dimensional brunette", category: "color" },
-  { src: "https://placehold.co/600x750.png?text=Beachy+bronde+waves", alt: "Beachy bronde beach waves", category: "balayage" },
-  { src: "https://placehold.co/600x750.png?text=Money+piece+face+frame", alt: "Money piece face frame", category: "balayage" },
-  { src: "https://placehold.co/600x750.png?text=Sombre+gradient", alt: "Sombré gradient", category: "balayage" },
-  { src: "https://placehold.co/600x750.png?text=Babylights+ultra+natural", alt: "Babylights ultra natural", category: "balayage" },
-  { src: "https://placehold.co/600x750.png?text=Extensions+before+after+length", alt: "Extensions before/after length", category: "extensions" },
-  { src: "https://placehold.co/600x750.png?text=Extensions+volume+length", alt: "Extensions volume and length", category: "extensions" },
-  { src: "https://placehold.co/600x750.png?text=Soft+romantic+updo", alt: "Soft romantic updo", category: "updos" },
-  { src: "https://placehold.co/600x750.png?text=Sleek+modern+updo", alt: "Sleek modern updo", category: "updos" },
+  { src: "/images/gallery-cut-01.jpg",        alt: "Modern bob, clean lines",          category: "cuts" },
+  { src: "/images/gallery-cut-02.jpg",        alt: "Curtain bangs, soft layers",       category: "cuts" },
+  { src: "/images/gallery-cut-03.jpg",        alt: "Men's textured crop",              category: "cuts" },
+  { src: "/images/gallery-cut-04.jpg",        alt: "Long layers, glossy back view",    category: "cuts" },
+  { src: "/images/gallery-color-01.jpg",      alt: "Rich brunette gloss",              category: "color" },
+  { src: "/images/gallery-color-02.jpg",      alt: "Copper/red transformation",        category: "color" },
+  { src: "/images/gallery-color-03.jpg",      alt: "Platinum cool blonde",             category: "color" },
+  { src: "/images/gallery-color-04.jpg",      alt: "Lived-in dimensional brunette",    category: "color" },
+  { src: "/images/gallery-balayage-01.jpg",   alt: "Beachy bronde beach waves",        category: "balayage" },
+  { src: "/images/gallery-balayage-02.jpg",   alt: "Money piece face frame",           category: "balayage" },
+  { src: "/images/gallery-balayage-03.jpg",   alt: "Sombré gradient",                  category: "balayage" },
+  { src: "/images/gallery-balayage-04.jpg",   alt: "Babylights ultra natural",         category: "balayage" },
+  { src: "/images/gallery-extensions-01.jpg", alt: "Extensions before/after length",   category: "extensions" },
+  { src: "/images/gallery-extensions-02.jpg", alt: "Extensions volume and length",     category: "extensions" },
+  { src: "/images/gallery-updo-01.jpg",       alt: "Soft romantic updo",               category: "updos" },
+  { src: "/images/gallery-updo-02.jpg",       alt: "Sleek modern updo",                category: "updos" },
 ];
 
 export default function Gallery() {

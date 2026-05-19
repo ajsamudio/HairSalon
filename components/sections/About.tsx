@@ -20,7 +20,7 @@ export default function About() {
           <Reveal className="w-full md:w-[40%] shrink-0">
             <div className="relative aspect-[4/5] rounded-brand overflow-hidden shadow-lg shadow-accent/10">
               <Image
-                src="https://placehold.co/800x1000/F6D6E0/4A2E3B.png?text=Owner+Portrait"
+                src="/images/owner-portrait.jpg"
                 alt="Hair stylist portrait"
                 fill
                 loading="lazy"
