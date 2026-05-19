@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(node -e \"const lucide = require\\('lucide-react'\\); const keys = Object.keys\\(lucide\\).filter\\(k => /instagram|tiktok|social|share|link/i.test\\(k\\)\\); console.log\\(keys\\);\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(Remove-Item \"C:\\\\Users\\\\Ajayy\\\\OneDrive\\\\Documents\\\\WebCode\\\\Claude\\\\DefaultHair\\\\app\\\\page.tsx\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\Ajayy\\\\OneDrive\\\\Documents\\\\WebCode\\\\Claude\\\\DefaultHair\\\\lib\\\\actions\")",
+      "PowerShell(cd \"C:\\\\Users\\\\Ajayy\\\\OneDrive\\\\Documents\\\\WebCode\\\\Claude\\\\DefaultHair\"; Start-Process -FilePath \"npm\" -ArgumentList \"run\",\"dev\" -NoNewWindow -PassThru | Select-Object Id; Start-Sleep -Seconds 8; try { Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 5 -UseBasicParsing | Select-Object StatusCode } catch { $_.Exception.Message })",
+      "PowerShell(cd \"C:\\\\Users\\\\Ajayy\\\\OneDrive\\\\Documents\\\\WebCode\\\\Claude\\\\DefaultHair\"; $job = Start-Job -ScriptBlock { Set-Location \"C:\\\\Users\\\\Ajayy\\\\OneDrive\\\\Documents\\\\WebCode\\\\Claude\\\\DefaultHair\"; npm run dev 2>&1 }; Start-Sleep -Seconds 10; Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 5 -UseBasicParsing | Select-Object StatusCode, Headers; $job | Stop-Job; $job | Remove-Job)"
+    ]
+  }
+}
