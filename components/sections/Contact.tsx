@@ -33,7 +33,7 @@ export default function Contact() {
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex gap-3 items-start text-ink hover:text-accent transition-colors group"
+              className="flex gap-3 items-start text-ink hover:text-accent transition-colors group min-h-[44px]"
               aria-label="Get directions"
             >
               <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-accent" aria-hidden />

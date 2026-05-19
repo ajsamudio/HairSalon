@@ -65,7 +65,7 @@ export default function Nav() {
           {/* Desktop Book Now */}
           <a
             href="#book"
-            className="hidden md:inline-flex items-center justify-center h-10 px-5 rounded-brand bg-accent text-white font-semibold text-sm transition-all hover:brightness-90 active:scale-[0.98]"
+            className="hidden md:inline-flex items-center justify-center min-h-[44px] px-5 rounded-brand bg-accent text-white font-semibold text-sm transition-all hover:brightness-90 active:scale-[0.98]"
           >
             Book Now
           </a>

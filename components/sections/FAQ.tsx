@@ -3,16 +3,6 @@ import { faqs } from "@/content/faqs";
 import { clientConfig } from "@/client.config";
 
 export default function FAQ() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
-
   return (
     <section id="faq" aria-labelledby="faq-heading" className="py-16 md:py-24 bg-surface">
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
@@ -35,6 +25,7 @@ export default function FAQ() {
           ))}
         </div>
 
+
         {/* Still have questions */}
         <p className="mt-8 text-sm text-ink-soft">
           Still have questions?{" "}
@@ -55,11 +46,6 @@ export default function FAQ() {
         </p>
       </div>
 
-      {/* FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
     </section>
   );
 }
